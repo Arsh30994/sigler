@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
-import { AvatarViewer } from './components/AvatarViewer'
-import { approvedSigns } from './registry/approvedSigns'
+import { AvatarViewer } from './features/avatar-viewer/AvatarViewer'
+import { approvedSigns } from './avatar/registry/approvedSigns'
 import type { Expression } from './avatar/types'
 
 const expressions: Expression[] = ['neutral', 'attentive', 'question', 'negative', 'emphasis', 'acknowledgement', 'uncertainty', 'error']

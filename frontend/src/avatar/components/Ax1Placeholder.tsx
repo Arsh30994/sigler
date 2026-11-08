@@ -2,8 +2,8 @@ import { Float } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { forwardRef, useMemo, useRef } from 'react'
 import * as THREE from 'three'
-import { createSigningSpaceLayout } from './layout/signingSpace'
-import type { Expression } from './types'
+import { createSigningSpaceLayout } from '../timeline/signingSpace'
+import type { Expression } from '../types'
 
 interface Props { expression: Expression; trackingEnabled: boolean; target: { x: number; y: number } }
 const joint = new THREE.MeshStandardMaterial({ color: '#10151e', roughness: 0.22, metalness: 0.85 })

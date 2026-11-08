@@ -1,4 +1,4 @@
-import type { ApprovedSign, PlaybackSpeed, SchedulerState } from './types'
+import type { ApprovedSign, PlaybackSpeed, SchedulerState } from '../types'
 
 export class AnimationScheduler {
   private state: SchedulerState = 'idle'

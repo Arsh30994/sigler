@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import * as THREE from 'three'
-import { framePerspectiveCamera } from './framing'
+import { framePerspectiveCamera } from '../../frontend/src/avatar/controllers/framing'
 
 describe('framePerspectiveCamera', () => {
   it('frames an offset avatar hierarchy rather than world origin', () => {

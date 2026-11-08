@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { validateApprovedSign } from './approvedSigns'
+import { validateApprovedSign } from '../../frontend/src/avatar/registry/approvedSigns'
 
 describe('approved-sign registry validation', () => {
   it('rejects incomplete sign evidence', () => {

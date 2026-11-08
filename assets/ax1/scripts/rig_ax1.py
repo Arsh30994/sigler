@@ -15,7 +15,7 @@ from mathutils import Vector
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 OUT = os.path.join(ROOT, "assets", "ax1")
-RIG_DIR = os.path.join(OUT, "rig")
+EXPORT_DIR = os.path.join(OUT, "exports")
 RENDER_DIR = os.path.join(OUT, "renders", "rig_validation")
 SOURCE = os.path.join(OUT, "source", "AX1.blend")
 
@@ -239,14 +239,14 @@ def validate(rig, specs, assignments):
 
 
 if __name__ == "__main__":
-    ensure_dir(RIG_DIR)
+    ensure_dir(EXPORT_DIR)
     rig, specs = create_armature()
     assignments = parent_mechanical_parts(rig)
     remove_non_ax1_meshes()
     create_validation_action(rig)
     render_validation_views()
     result = validate(rig, specs, assignments)
-    with open(os.path.join(RIG_DIR, "ax1-bone-map.json"), "w", encoding="utf-8") as file:
+    with open(os.path.join(EXPORT_DIR, "ax1-bone-map.json"), "w", encoding="utf-8") as file:
         json.dump({
             "armature": rig.name,
             "bones": specs,
@@ -265,5 +265,5 @@ if __name__ == "__main__":
     for obj in bpy.data.collections["AX1_BUILD"].objects:
         if obj.type == "MESH": obj.select_set(True)
     bpy.context.view_layer.objects.active = rig
-    bpy.ops.export_scene.gltf(filepath=os.path.join(RIG_DIR, "AX1_rig_validation.glb"), export_format="GLB", use_selection=True, export_animations=True)
+    bpy.ops.export_scene.gltf(filepath=os.path.join(EXPORT_DIR, "AX1.glb"), export_format="GLB", use_selection=True, export_animations=True)
     print(json.dumps(result))

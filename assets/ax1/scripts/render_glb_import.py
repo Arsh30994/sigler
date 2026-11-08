@@ -8,7 +8,7 @@ import bpy
 from mathutils import Vector
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-GLB = os.path.join(ROOT, "assets", "ax1", "rig", "AX1_rig_validation.glb")
+GLB = os.path.join(ROOT, "assets", "ax1", "exports", "AX1.glb")
 OUTPUT = os.path.join(ROOT, "assets", "ax1", "renders", "rig_validation", "ax1_glb_reimport_front.png")
 
 

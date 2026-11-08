@@ -8,6 +8,9 @@ export interface LoadedAx1 { scene: Group; mixer: AnimationMixer; animations: Re
 
 export class RigCompatibilityError extends Error {}
 
+const modelUrl = import.meta.env.VITE_AX1_MODEL_URL ?? '/AX1.glb'
+const boneMapUrl = import.meta.env.VITE_AX1_BONE_MAP_URL ?? '/ax1-bone-map.json'
+
 export function validateRig(scene: Object3D, boneMap: Ax1BoneMap): RigCompatibility {
   const bones = new Map<string, Bone>()
   scene.traverse((object) => { if (object instanceof Bone) bones.set(object.name, object) })
@@ -28,7 +31,7 @@ function disposeScene(scene: Object3D) {
 }
 
 export async function loadAx1(): Promise<LoadedAx1> {
-  const [gltf, response] = await Promise.all([new GLTFLoader().loadAsync('/models/AX1_rig_validation.glb'), fetch('/models/ax1-bone-map.json')])
+  const [gltf, response] = await Promise.all([new GLTFLoader().loadAsync(modelUrl), fetch(boneMapUrl)])
   if (!response.ok) throw new Error(`AX-1 bone map could not load (${response.status})`)
   const boneMap = await response.json() as Ax1BoneMap
   const rig = validateRig(gltf.scene, boneMap)

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { AnimationScheduler } from './AnimationScheduler'
-import type { ApprovedSign } from './types'
+import { AnimationScheduler } from '../../frontend/src/avatar/animation/AnimationScheduler'
+import type { ApprovedSign } from '../../frontend/src/avatar/types'
 
 const sign: ApprovedSign = { id: 'test', label: 'Test', sourceReference: 'review', meaningContext: 'test only', handshape: 'n/a', palmOrientation: 'n/a', handLocation: 'n/a', movement: 'n/a', handBehaviour: 'n/a', nonManualFeatures: 'n/a', bodyMovement: 'n/a', reviewer: 'Reviewer', reviewDate: '2026-11-08', approvalStatus: 'approved', animationVersion: '1', durationSeconds: 2, subtitles: [] }
 describe('AnimationScheduler', () => {

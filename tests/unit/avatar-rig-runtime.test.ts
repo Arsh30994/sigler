@@ -1,6 +1,6 @@
 import { Bone, Group } from 'three'
 import { describe, expect, it } from 'vitest'
-import { RigCompatibilityError, validateRig } from './runtime'
+import { RigCompatibilityError, validateRig } from '../../frontend/src/avatar/rig/runtime'
 
 const map = { armature: 'AX1_RIG', roles: { head: 'AX1_HEAD', chest: 'AX1_HEAD', leftHand: 'AX1_HEAD', rightHand: 'AX1_HEAD' }, bones: [{ name: 'AX1_HEAD', parent: 'AX1_NECK', deform: true, purpose: 'Head' }, { name: 'CTRL_AX1_HEAD', parent: 'AX1_ROOT', deform: false, purpose: 'Control' }] }
 describe('validateRig', () => {

@@ -1,7 +1,7 @@
 import { useFrame } from '@react-three/fiber'
 import { useEffect, useRef, useState } from 'react'
 import * as THREE from 'three'
-import { type LoadedAx1, loadAx1 } from '../rig/runtime'
+import { type LoadedAx1, loadAx1 } from '../../avatar/rig/runtime'
 
 export type Ax1LoadState = { kind: 'loading' } | { kind: 'ready'; boneCount: number; animationCount: number } | { kind: 'error'; message: string }
 interface Props { trackingEnabled: boolean; target: { x: number; y: number }; onStateChange(state: Ax1LoadState): void }

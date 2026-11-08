@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { createSigningSpaceLayout } from './signingSpace'
+import { createSigningSpaceLayout } from '../../frontend/src/avatar/timeline/signingSpace'
 
 describe('createSigningSpaceLayout', () => {
   it('keeps the neutral hand presentation plane in front of chest armour', () => {

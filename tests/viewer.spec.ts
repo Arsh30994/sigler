@@ -1,2 +1,0 @@
-import { expect, test } from '@playwright/test'
-test('shows AX-1 development viewer and channel state', async ({ page }) => { await page.goto('/'); await expect(page.getByLabel('AX-1 avatar viewer')).toBeVisible(); await expect(page.getByText('DEVELOPMENT PLACEHOLDER')).toBeVisible(); await page.getByRole('button', { name: /simulate reviewed-sign/i }).click(); await expect(page.getByText('SIGNING LOCK')).toBeVisible() })

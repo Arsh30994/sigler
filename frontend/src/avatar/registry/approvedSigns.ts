@@ -1,4 +1,4 @@
-import type { ApprovedSign } from '../avatar/types'
+import type { ApprovedSign } from '../types'
 
 /** Only add records after human linguistic review. This development registry has no sign animations. */
 export const approvedSigns: readonly ApprovedSign[] = []

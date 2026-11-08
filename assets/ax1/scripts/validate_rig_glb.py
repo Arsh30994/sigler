@@ -4,10 +4,10 @@ import os
 import bpy
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-RIG_DIR = os.path.join(ROOT, "assets", "ax1", "rig")
-GLB = os.path.join(RIG_DIR, "AX1_rig_validation.glb")
-MAP = os.path.join(RIG_DIR, "ax1-bone-map.json")
-REPORT = os.path.join(RIG_DIR, "glb-validation.json")
+EXPORT_DIR = os.path.join(ROOT, "assets", "ax1", "exports")
+GLB = os.path.join(EXPORT_DIR, "AX1.glb")
+MAP = os.path.join(EXPORT_DIR, "ax1-bone-map.json")
+REPORT = os.path.join(EXPORT_DIR, "glb-validation.json")
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.ops.import_scene.gltf(filepath=GLB)

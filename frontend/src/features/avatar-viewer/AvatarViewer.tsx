@@ -1,8 +1,8 @@
 import { Environment, Grid, Html } from '@react-three/drei'
 import { Canvas, useThree } from '@react-three/fiber'
 import { useCallback, useLayoutEffect, useState } from 'react'
-import { Ax1Model, type Ax1LoadState } from '../avatar/components/Ax1Model'
-import type { Expression } from '../avatar/types'
+import { Ax1Model, type Ax1LoadState } from './Ax1Model'
+import type { Expression } from '../../avatar/types'
 
 interface Props { expression: Expression; signing: boolean }
 function StableAx1Camera({ ready }: { ready: boolean }) {
