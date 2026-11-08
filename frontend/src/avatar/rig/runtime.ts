@@ -1,10 +1,12 @@
 import { AnimationMixer, Bone, Group, Material, Object3D } from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+import { ChannelOwnership } from '../animation/channelOwnership'
+import { MixerPlayback } from '../animation/mixerPlayback'
 
 export interface RigBoneDefinition { name: string; parent: string | null; deform: boolean; purpose: string }
 export interface Ax1BoneMap { armature: string; bones: RigBoneDefinition[]; roles: { head: string; chest: string; leftHand: string; rightHand: string } }
 export interface RigCompatibility { bones: ReadonlyMap<string, Bone>; requiredBoneCount: number }
-export interface LoadedAx1 { scene: Group; mixer: AnimationMixer; animations: ReturnType<GLTFLoader['loadAsync']> extends Promise<infer G> ? G extends { animations: infer A } ? A : never : never; boneMap: Ax1BoneMap; rig: RigCompatibility; dispose(): void }
+export interface LoadedAx1 { scene: Group; mixer: AnimationMixer; playback: MixerPlayback; ownership: ChannelOwnership; animations: ReturnType<GLTFLoader['loadAsync']> extends Promise<infer G> ? G extends { animations: infer A } ? A : never : never; boneMap: Ax1BoneMap; rig: RigCompatibility; dispose(): void }
 
 export class RigCompatibilityError extends Error {}
 
@@ -36,5 +38,7 @@ export async function loadAx1(): Promise<LoadedAx1> {
   const boneMap = await response.json() as Ax1BoneMap
   const rig = validateRig(gltf.scene, boneMap)
   const mixer = new AnimationMixer(gltf.scene)
-  return { scene: gltf.scene, mixer, animations: gltf.animations, boneMap, rig, dispose: () => { mixer.stopAllAction(); disposeScene(gltf.scene) } }
+  const ownership = new ChannelOwnership()
+  const playback = new MixerPlayback(mixer, ownership)
+  return { scene: gltf.scene, mixer, playback, ownership, animations: gltf.animations, boneMap, rig, dispose: () => { playback.dispose(); disposeScene(gltf.scene) } }
 }

@@ -1,6 +1,7 @@
 import { useFrame } from '@react-three/fiber'
 import { useEffect, useRef, useState } from 'react'
 import * as THREE from 'three'
+import { applyIdleHeadTracking } from '../../avatar/controllers/headTracking'
 import { type LoadedAx1, loadAx1 } from '../../avatar/rig/runtime'
 
 export type Ax1LoadState = { kind: 'loading' } | { kind: 'ready'; boneCount: number; animationCount: number } | { kind: 'error'; message: string }
@@ -13,11 +14,7 @@ function HeadIdleOffset({ asset, trackingEnabled, target }: { asset: LoadedAx1; 
   useFrame((_, delta) => {
     asset.mixer.update(delta)
     if (!head || !rest.current) return
-    const response = 1 - Math.exp(-delta * 6.5)
-    const yaw = trackingEnabled ? target.x * THREE.MathUtils.degToRad(25) : 0
-    const pitch = trackingEnabled ? target.y * THREE.MathUtils.degToRad(12) : 0
-    const offset = new THREE.Quaternion().setFromEuler(new THREE.Euler(pitch, yaw, 0))
-    head.quaternion.slerp(rest.current.clone().multiply(offset), response)
+    applyIdleHeadTracking({ head, neutralRotation: rest.current, target, enabled: trackingEnabled, deltaSeconds: delta, ownership: asset.ownership })
   })
   return null
 }
