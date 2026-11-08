@@ -1,27 +1,49 @@
 # SIGLER — AX-1 Foundation
 
-Local, frontend-only integration lab for AX-1. It intentionally excludes all platform services, authentication, AI orchestration, translation, speech, camera input, and networking.
+SIGLER is a local engineering workspace for AX-1, a signing-focused humanoid avatar. This repository is deliberately not the end-user communication platform and contains no authentication, translation, speech, camera input, AI orchestration, or network services.
 
-## Run
+## AX-1 Phase 1 scope
+
+- Exported AX-1 GLB loading with real-bone compatibility validation.
+- A responsive React workspace for inspecting the neutral avatar and its development diagnostics.
+- A typed, approval-gated sign animation registry, scheduler, timeline, asset validation, and channel-ownership boundary.
+- Blender generation, rigging, GLB clean-import validation, and inspection-render scripts.
+
+The project never presents a generated or unreviewed motion as a valid ISL sign.
+
+## Technology
+
+React, Vite, TypeScript, Tailwind CSS, Three.js / React Three Fiber, Vitest, Playwright, ESLint, and Prettier are installed and configured. Tailwind's Vite integration is active; the workspace uses a small purpose-written stylesheet alongside it.
+
+## Install and run
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-Validation commands: `npm run lint`, `npm test`, `npm run build`, and `npm run test:e2e`.
+Open the local URL printed by Vite. The viewer serves the exact reviewed export from `assets/ax1/exports/`.
+
+## Commands
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the Vite development workspace. |
+| `npm run build` | Type-check and create a production build. |
+| `npm run preview` | Serve the production build locally. |
+| `npm run lint` | Run ESLint. |
+| `npm run typecheck` | Run TypeScript project checks. |
+| `npm test` | Run the Vitest unit suite. |
+| `npm run test:e2e` | Run Playwright workspace checks. |
 
 ## Current asset status
 
-The browser loads the production AX-1 export at `assets/ax1/exports/AX1.glb` through `GLTFLoader`. Its generated `ax1-bone-map.json` validates the documented deform bones and semantic controller roles before the viewer enables head tracking. `assets/ax1/source/AX1.blend` remains the Blender source; `assets/ax1/renders/` contains modelling and rig-inspection renders.
+`assets/ax1/exports/AX1.glb` is the actual production model export. The paired `ax1-bone-map.json` is loaded at runtime and validates every required deform bone and semantic role before AX-1 is reported ready. Clean Blender re-import validates 83 meshes, 46 bones (42 deform), 28 finger phalanges, three embedded materials, no external textures, and one rig-validation clip.
 
-`frontend/src/avatar/registry/approvedSigns.ts` deliberately contains no signs. A production record must include the typed evidence fields in `ApprovedSign`, including a human reviewer, review date, source, and version. The app does not generate or assert ISL signs.
+The Blender source is `assets/ax1/source/AX1.blend`. Its scripts and renders are under `assets/ax1/scripts/` and `assets/ax1/renders/`. The separate base-design candidate is retained at `assets/ax1/source/AX1-base-v0.1.blend`, together with its human-approval package.
 
-## Architecture
+## Current limitations and release gate
 
-- `frontend/src/avatar/rig/runtime.ts`: GLB loader, real-bone validation, mixer initialization, and disposal.
-- `frontend/src/avatar/animation/AnimationScheduler.ts`: pure playback state machine (play, pause, resume, stop and slow speed).
-- `frontend/src/avatar/registry/approvedSigns.ts`: approved-only registry boundary and validation.
-- `frontend/src/features/avatar-viewer/`: model and canvas interaction boundary.
+There are intentionally no `APPROVED` sign records or approved sign-animation assets. The development workspace therefore disables production playback rather than pretending that the included rig-validation clip is a sign. Visor presentation is a visual preview only; AX-1 currently has no facial morph target or reviewer-approved non-manual grammar system.
 
-The visual toggle simulates the scheduler ownership lock; it is intentionally not a sign animation. Retain the channel priority: approved sign, system feedback, idle mouse head, ambient idle.
+Human character-design approval, human ISL approval plus source evidence for each published sign, an approved sign asset with required tracks, and physical lower-powered mobile performance measurements are still required before platform integration. See [the release checklist](docs/avatar/release-checklist.md) and [known limitations](docs/testing/known-limitations.md).
