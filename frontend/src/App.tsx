@@ -1,19 +1,24 @@
 import { useMemo, useState } from 'react'
 import { AvatarViewer } from './features/avatar-viewer/AvatarViewer'
+import type { Ax1LoadState } from './features/avatar-viewer/Ax1Model'
+import { WorkspaceControls } from './features/avatar-workspace/WorkspaceControls'
+import { WorkspaceDiagnostics } from './features/avatar-workspace/WorkspaceDiagnostics'
 import { approvedSigns } from './avatar/registry/approvedSigns'
 import type { Expression } from './avatar/types'
 
-const expressions: Expression[] = ['neutral', 'attentive', 'question', 'negative', 'emphasis', 'acknowledgement', 'uncertainty', 'error']
 export default function App() {
   const [expression, setExpression] = useState<Expression>('neutral')
-  const [signing, setSigning] = useState(false)
-  const status = useMemo(() => signing ? 'Signing channel owns head, arms, hands and torso.' : 'Idle mouse tracking owns head only.', [signing])
-  return <main><header><div><p className="eyebrow">SIGLER / AX-1</p><h1>Avatar integration lab</h1></div><span className={`status ${signing ? 'active' : ''}`}>{signing ? 'SIGNING LOCK' : 'IDLE / LISTENING'}</span></header>
-    <div className="layout"><AvatarViewer expression={expression} signing={signing} /><aside><p className="eyebrow">CHANNEL CONTROLS</p><h2>Presentation state</h2><p className="muted">{status}</p><label htmlFor="expression">Visor expression</label><select id="expression" value={expression} onChange={(event) => setExpression(event.target.value as Expression)}>{expressions.map((item) => <option key={item} value={item}>{item}</option>)}</select>
-      <button type="button" className="primary" onClick={() => setSigning((active) => !active)}>{signing ? 'Stop playback / restore idle' : 'Simulate reviewed-sign playback'}</button>
-      <section className="card"><h3>Approved sign registry</h3><p>{approvedSigns.length === 0 ? 'No reviewed animations are installed. AX-1 remains neutral; do not infer or generate a sign.' : `${approvedSigns.length} reviewed signs available.`}</p><small>Registry accepts only human-approved records with source, reviewer, date, and animation version.</small></section>
-      <section className="card"><h3>Channel priority</h3><ol><li>Approved sign</li><li>System feedback</li><li>Idle mouse head tracking</li><li>Ambient idle</li></ol></section>
-    </aside></div>
-    <footer>Phase 1 local development interface · Touch input preserves a neutral head pose.</footer>
+  const [trackingEnabled, setTrackingEnabled] = useState(true)
+  const [showLandmarks, setShowLandmarks] = useState(true)
+  const [resetToken, setResetToken] = useState(0)
+  const [frameRate, setFrameRate] = useState<number | null>(null)
+  const [modelState, setModelState] = useState<Ax1LoadState>({ kind: 'loading' })
+  const development = import.meta.env.DEV
+  const forceWebGlFallback = development && new URLSearchParams(window.location.search).has('webgl-fallback')
+  const status = useMemo(() => modelState.kind === 'ready' ? 'AX-1 rig ready · neutral state' : modelState.kind === 'error' ? 'AX-1 asset issue detected' : 'Loading AX-1 model and rig mapping', [modelState])
+  return <main className="workspace-shell"><header className="workspace-header"><div><p className="eyebrow">SIGLER / AX-1 / DEVELOPMENT WORKSPACE</p><h1>Avatar operations lab</h1><p className="header-summary">{status}</p></div><span className={`status ${modelState.kind === 'ready' ? 'active' : ''}`}><span aria-hidden="true">●</span> {modelState.kind.toUpperCase()}</span></header>
+    <div className="workspace-layout"><section className="stage-column" aria-label="AX-1 development stage"><div className="stage-toolbar"><span>Signing space / stable camera</span><span>{approvedSigns.length === 0 ? 'No approved animation selected' : 'Approved registry ready'}</span></div><AvatarViewer expression={expression} trackingEnabled={development && trackingEnabled} showLandmarks={showLandmarks} resetToken={resetToken} forceWebGlFallback={forceWebGlFallback} onModelState={setModelState} onFrameRate={setFrameRate} /><p className="stage-caption">Mouse input affects the head only while idle. No control can create, approve, or bypass a signing animation.</p></section>
+      <aside className="workspace-sidebar"><WorkspaceControls development={development} trackingEnabled={trackingEnabled} showLandmarks={showLandmarks} expression={expression} signs={approvedSigns} onNeutralReset={() => setResetToken((value) => value + 1)} onTrackingChange={setTrackingEnabled} onLandmarksChange={setShowLandmarks} onExpressionChange={setExpression} /><WorkspaceDiagnostics modelState={modelState} frameRate={frameRate} trackingEnabled={trackingEnabled} /></aside></div>
+    <footer>AX-1 engineering workspace · Development controls are intentionally unavailable in production builds.</footer>
   </main>
 }
