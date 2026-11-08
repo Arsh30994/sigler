@@ -30,3 +30,5 @@ There are no `APPROVED` sign records and no published sign animation assets. The
 - Blender clean re-import: pass.
 
 One intermediate Playwright run failed because `getByText('Development controls')` matched both the panel and footer. The assertion was changed to an exact panel label and the rerun passed. No product defect was hidden by this fix.
+
+One intermediate asset-validation unit test expected a missing-bone error from the unreviewed schema example, which intentionally has no referenced bones. The test clone was corrected to reference `AX1_HEAD`; the validator was unchanged and the complete suite then passed.
