@@ -38,6 +38,7 @@ export function AvatarViewer({ expression, trackingEnabled, showLandmarks, reset
     setTarget({ x: ((event.clientX - box.left) / box.width - 0.5) * 2, y: -((event.clientY - box.top) / box.height - 0.5) * 2 })
   }, [trackingEnabled])
   const reset = useCallback(() => setTarget({ x: 0, y: 0 }), [])
+  useEffect(() => { window.addEventListener('blur', reset); return () => window.removeEventListener('blur', reset) }, [reset])
   if (forceWebGlFallback) return <section className="viewer" aria-label="AX-1 avatar viewer"><WebGlFallback /></section>
   return <section className="viewer" aria-label="AX-1 avatar viewer" onPointerMove={updateTarget} onPointerLeave={reset} onBlur={reset} tabIndex={0}>
     <Canvas camera={{ fov: 35 }} dpr={[1, 2]} fallback={<WebGlFallback />}>

@@ -12,8 +12,8 @@ test('loads the AX-1 development workspace without bypassing the approval gate',
 })
 
 test('keeps controls readable on a narrow fallback workspace', async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/?webgl-fallback=1')
+  await page.setViewportSize({ width: 390, height: 844 })
   await expect(page.getByRole('status')).toContainText('3D preview unavailable')
   await expect(page.getByText('DEVELOPMENT CONTROLS', { exact: true })).toBeVisible()
   await expect(page.getByRole('button', { name: 'Reset neutral pose' })).toBeVisible()

@@ -3,6 +3,8 @@ import type { ProductionSign, SignSpecification } from '../types'
 /** Production playback reads only this registry. Automated systems cannot add a reviewer or approval. */
 export const approvedSigns: readonly ProductionSign[] = []
 
+export function findApprovedSign(signId: string): ProductionSign | undefined { return approvedSigns.find((sign) => sign.signId === signId) }
+
 /** Isolated schema example; it is never eligible for production playback or ISL output. */
 export const developmentExamples: readonly SignSpecification[] = [{
   signId: 'ISL_EXAMPLE_001', phraseId: 'PHRASE_EXAMPLE_001', label: 'Schema-only development example',
