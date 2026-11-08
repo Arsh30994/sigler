@@ -1,0 +1,441 @@
+{
+  "revision": "v0.1",
+  "approvalStatus": "pending_human_visual_approval",
+  "source": "assets/ax1/source/AX1-base-v0.1.blend",
+  "polygonCount": 20218,
+  "meshComponentCount": 83,
+  "components": [
+    {
+      "name": "AX1_CHEST_MECHANISM",
+      "polygons": 98,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_HEAD_SHELL",
+      "polygons": 384,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_ELBOW_JOINT",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_L_FOREARM",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_INDEX_01",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_INDEX_02",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_INDEX_03",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_INDEX_JOINT_0",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_L_INDEX_JOINT_1",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_L_INDEX_JOINT_2",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_L_INDEX_TIP",
+      "polygons": 384,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_LITTLE_01",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_LITTLE_02",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_LITTLE_03",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_LITTLE_JOINT_0",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_L_LITTLE_JOINT_1",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_L_LITTLE_JOINT_2",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_L_LITTLE_TIP",
+      "polygons": 384,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_MIDDLE_01",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_MIDDLE_02",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_MIDDLE_03",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_MIDDLE_JOINT_0",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_L_MIDDLE_JOINT_1",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_L_MIDDLE_JOINT_2",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_L_MIDDLE_TIP",
+      "polygons": 384,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_PALM",
+      "polygons": 98,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_RING_01",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_RING_02",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_RING_03",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_RING_JOINT_0",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_L_RING_JOINT_1",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_L_RING_JOINT_2",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_L_RING_TIP",
+      "polygons": 384,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_SHOULDER_JOINT",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_L_THUMB_01",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_THUMB_02",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_THUMB_JOINT_0",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_L_THUMB_JOINT_1",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_L_THUMB_TIP",
+      "polygons": 384,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_UPPER_ARM",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_L_WRIST_JOINT",
+      "polygons": 102,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_R_ELBOW_JOINT",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_R_FOREARM",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_INDEX_01",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_INDEX_02",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_INDEX_03",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_INDEX_JOINT_0",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_R_INDEX_JOINT_1",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_R_INDEX_JOINT_2",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_R_INDEX_TIP",
+      "polygons": 384,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_LITTLE_01",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_LITTLE_02",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_LITTLE_03",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_LITTLE_JOINT_0",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_R_LITTLE_JOINT_1",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_R_LITTLE_JOINT_2",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_R_LITTLE_TIP",
+      "polygons": 384,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_MIDDLE_01",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_MIDDLE_02",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_MIDDLE_03",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_MIDDLE_JOINT_0",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_R_MIDDLE_JOINT_1",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_R_MIDDLE_JOINT_2",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_R_MIDDLE_TIP",
+      "polygons": 384,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_PALM",
+      "polygons": 98,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_RING_01",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_RING_02",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_RING_03",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_RING_JOINT_0",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_R_RING_JOINT_1",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_R_RING_JOINT_2",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_R_RING_TIP",
+      "polygons": 384,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_SHOULDER_JOINT",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_R_THUMB_01",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_THUMB_02",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_THUMB_JOINT_0",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_R_THUMB_JOINT_1",
+      "polygons": 384,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_R_THUMB_TIP",
+      "polygons": 384,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_UPPER_ARM",
+      "polygons": 82,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_R_WRIST_JOINT",
+      "polygons": 102,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_SPINE_NECK",
+      "polygons": 102,
+      "material": "M_AX1_Joint"
+    },
+    {
+      "name": "AX1_TORSO",
+      "polygons": 98,
+      "material": "M_AX1_Armour"
+    },
+    {
+      "name": "AX1_VISOR",
+      "polygons": 384,
+      "material": "M_AX1_Visor"
+    }
+  ],
+  "materials": [
+    {
+      "name": "M_AX1_Armour",
+      "metallic": 0.7200000286102295,
+      "roughness": 0.23999999463558197
+    },
+    {
+      "name": "M_AX1_Joint",
+      "metallic": 0.8999999761581421,
+      "roughness": 0.20000000298023224
+    },
+    {
+      "name": "M_AX1_Visor",
+      "metallic": 0.8199999928474426,
+      "roughness": 0.07999999821186066
+    }
+  ]
+}

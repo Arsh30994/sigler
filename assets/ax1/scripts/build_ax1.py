@@ -10,12 +10,14 @@ Run from repository root:
 import math
 import os
 import bpy
-from mathutils import Vector
+from mathutils import Matrix, Vector
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 OUT = os.path.join(ROOT, "assets", "ax1")
-RENDER_DIR = os.path.join(OUT, "renders")
+REVISION = "v0.1"
+RENDER_DIR = os.path.join(OUT, "renders", "approval", REVISION)
 SOURCE_DIR = os.path.join(OUT, "source")
+APPROVAL_DIR = os.path.join(OUT, "approval", REVISION)
 
 
 def named_collection(name, parent=None):
@@ -165,6 +167,8 @@ def build_model():
     scene.unit_settings.system = "METRIC"
     scene.unit_settings.scale_length = 1.0
     scene.render.engine = "BLENDER_EEVEE_NEXT"
+    scene["ax1_design_revision"] = REVISION
+    scene["ax1_approval_status"] = "pending_human_visual_approval"
     collection = named_collection("AX1_BUILD")
     clear_previous_build(collection)
     materials = {
@@ -212,12 +216,13 @@ def render_views():
     views = {
         # AX-1 uses Blender Y-up, Z-depth. All views therefore preserve Y as
         # camera height and orbit in the X/Z plane around the character.
-        "front": ((0, 1.55, 6.2), (0, 1.55, 0.05), 50),
-        "side": ((5.8, 1.55, 0.05), (0, 1.55, 0.05), 50),
-        "three_quarter": ((4.8, 2.15, 4.8), (0, 1.55, 0.05), 50),
-        "head_closeup": ((1.8, 2.50, 2.9), (0, 2.40, 0.05), 58),
-        "hand_closeup": ((2.1, 1.15, 2.4), (0.88, 1.10, 0.10), 55),
-        "upper_body": ((0, 1.70, 7.0), (0, 1.60, 0.05), 42),
+        "01_front": ((0, 1.55, 6.2), (0, 1.55, 0.05), 50),
+        "02_side": ((5.8, 1.55, 0.05), (0, 1.55, 0.05), 50),
+        "03_three_quarter": ((4.8, 2.15, 4.8), (0, 1.55, 0.05), 50),
+        "04_head_visor_closeup": ((1.8, 2.50, 2.9), (0, 2.40, 0.05), 58),
+        "05_left_hand_closeup": ((-2.1, 1.15, 2.4), (-0.88, 1.10, 0.10), 55),
+        "06_right_hand_closeup": ((2.1, 1.15, 2.4), (0.88, 1.10, 0.10), 55),
+        "07_full_upper_body": ((0, 1.70, 7.0), (0, 1.60, 0.05), 42),
     }
     bpy.ops.object.camera_add()
     camera = bpy.context.object
@@ -231,19 +236,63 @@ def render_views():
     bpy.data.objects.remove(camera, do_unlink=True)
 
 
+def render_signing_space_pose(collection):
+    """Render a non-destructive approval pose; the neutral source remains unchanged."""
+    scene = bpy.context.scene
+    arm_meshes = [obj for obj in collection.objects if obj.type == "MESH" and obj.name.startswith(("AX1_L_", "AX1_R_"))]
+    original_matrices = {obj: obj.matrix_world.copy() for obj in arm_meshes}
+    for side, sign in (("L", -1), ("R", 1)):
+        pivot = Vector((sign * 0.61, 1.66, 0.02))
+        pose_transform = Matrix.Translation(pivot) @ Matrix.Rotation(-0.78, 4, "X") @ Matrix.Translation(-pivot)
+        for obj in (item for item in arm_meshes if item.name.startswith(f"AX1_{side}_")):
+            obj.matrix_world = pose_transform @ original_matrices[obj]
+    bpy.ops.object.camera_add(location=(0, 1.55, 6.5))
+    camera = bpy.context.object
+    camera.name, camera.data.lens = "AX1_SIGNING_SPACE_CAMERA", 50
+    point_at(camera, (0, 1.55, 0.34))
+    scene.camera = camera
+    scene.render.filepath = os.path.join(RENDER_DIR, "08_signing_space_demonstration.png")
+    bpy.ops.render.render(write_still=True)
+    bpy.data.objects.remove(camera, do_unlink=True)
+    for obj, matrix in original_matrices.items():
+        obj.matrix_world = matrix
+
+
+def approval_manifest(collection):
+    os.makedirs(APPROVAL_DIR, exist_ok=True)
+    depsgraph = bpy.context.evaluated_depsgraph_get()
+    components = []
+    polygon_count = 0
+    for obj in sorted((item for item in collection.objects if item.type == "MESH"), key=lambda item: item.name):
+        evaluated = obj.evaluated_get(depsgraph)
+        mesh = evaluated.to_mesh()
+        polygons = len(mesh.polygons)
+        polygon_count += polygons
+        components.append({"name": obj.name, "polygons": polygons, "material": obj.data.materials[0].name if obj.data.materials else None})
+        evaluated.to_mesh_clear()
+    materials = [{"name": material.name, "metallic": material.node_tree.nodes["Principled BSDF"].inputs["Metallic"].default_value, "roughness": material.node_tree.nodes["Principled BSDF"].inputs["Roughness"].default_value} for material in bpy.data.materials if material.name.startswith("M_AX1_")]
+    manifest = {"revision": REVISION, "approvalStatus": "pending_human_visual_approval", "source": f"assets/ax1/source/AX1-base-{REVISION}.blend", "polygonCount": polygon_count, "meshComponentCount": len(components), "components": components, "materials": materials}
+    import json
+    with open(os.path.join(APPROVAL_DIR, "approval-manifest.json"), "w", encoding="utf-8") as file:
+        json.dump(manifest, file, indent=2)
+    return manifest
+
+
 def save_and_export(collection):
     os.makedirs(SOURCE_DIR, exist_ok=True)
-    bpy.ops.wm.save_as_mainfile(filepath=os.path.join(SOURCE_DIR, "AX1.blend"))
+    bpy.ops.wm.save_as_mainfile(filepath=os.path.join(SOURCE_DIR, f"AX1-base-{REVISION}.blend"))
     bpy.ops.object.select_all(action="DESELECT")
     for obj in collection.objects:
         if obj.type == "MESH":
             obj.select_set(True)
-    bpy.ops.export_scene.gltf(filepath=os.path.join(SOURCE_DIR, "AX1_base.glb"), export_format="GLB", use_selection=True)
+    bpy.ops.export_scene.gltf(filepath=os.path.join(SOURCE_DIR, f"AX1-base-{REVISION}.glb"), export_format="GLB", use_selection=True)
 
 
 if __name__ == "__main__":
     asset_collection = build_model()
     set_studio_lights()
     render_views()
+    render_signing_space_pose(asset_collection)
+    manifest = approval_manifest(asset_collection)
     save_and_export(asset_collection)
-    print("AX-1 base model and six inspection renders were generated.")
+    print(f"AX-1 {REVISION} base approval package generated: {manifest['polygonCount']} evaluated polygons across {manifest['meshComponentCount']} mesh components.")
