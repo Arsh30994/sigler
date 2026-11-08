@@ -1,0 +1,382 @@
+{
+  "armature": "AX1_RIG",
+  "bones": [
+    {
+      "name": "AX1_ROOT",
+      "parent": null,
+      "deform": true,
+      "purpose": "Global mechanical rig root"
+    },
+    {
+      "name": "AX1_SPINE",
+      "parent": "AX1_ROOT",
+      "deform": true,
+      "purpose": "Lower torso posture"
+    },
+    {
+      "name": "AX1_CHEST",
+      "parent": "AX1_SPINE",
+      "deform": true,
+      "purpose": "Chest armour posture"
+    },
+    {
+      "name": "AX1_UPPER_CHEST",
+      "parent": "AX1_CHEST",
+      "deform": true,
+      "purpose": "Shoulder-girdle posture"
+    },
+    {
+      "name": "AX1_NECK",
+      "parent": "AX1_UPPER_CHEST",
+      "deform": true,
+      "purpose": "Neck connector"
+    },
+    {
+      "name": "AX1_HEAD",
+      "parent": "AX1_NECK",
+      "deform": true,
+      "purpose": "Head shell and visor"
+    },
+    {
+      "name": "AX1_L_SHOULDER",
+      "parent": "AX1_UPPER_CHEST",
+      "deform": true,
+      "purpose": "L shoulder pivot"
+    },
+    {
+      "name": "AX1_L_UPPER_ARM",
+      "parent": "AX1_L_SHOULDER",
+      "deform": true,
+      "purpose": "L upper arm"
+    },
+    {
+      "name": "AX1_L_FOREARM",
+      "parent": "AX1_L_UPPER_ARM",
+      "deform": true,
+      "purpose": "L forearm and elbow"
+    },
+    {
+      "name": "AX1_L_HAND",
+      "parent": "AX1_L_FOREARM",
+      "deform": true,
+      "purpose": "L wrist and palm"
+    },
+    {
+      "name": "AX1_L_INDEX_01",
+      "parent": "AX1_L_HAND",
+      "deform": true,
+      "purpose": "L index phalanx 1"
+    },
+    {
+      "name": "AX1_L_INDEX_02",
+      "parent": "AX1_L_INDEX_01",
+      "deform": true,
+      "purpose": "L index phalanx 2"
+    },
+    {
+      "name": "AX1_L_INDEX_03",
+      "parent": "AX1_L_INDEX_02",
+      "deform": true,
+      "purpose": "L index phalanx 3"
+    },
+    {
+      "name": "AX1_L_MIDDLE_01",
+      "parent": "AX1_L_HAND",
+      "deform": true,
+      "purpose": "L middle phalanx 1"
+    },
+    {
+      "name": "AX1_L_MIDDLE_02",
+      "parent": "AX1_L_MIDDLE_01",
+      "deform": true,
+      "purpose": "L middle phalanx 2"
+    },
+    {
+      "name": "AX1_L_MIDDLE_03",
+      "parent": "AX1_L_MIDDLE_02",
+      "deform": true,
+      "purpose": "L middle phalanx 3"
+    },
+    {
+      "name": "AX1_L_RING_01",
+      "parent": "AX1_L_HAND",
+      "deform": true,
+      "purpose": "L ring phalanx 1"
+    },
+    {
+      "name": "AX1_L_RING_02",
+      "parent": "AX1_L_RING_01",
+      "deform": true,
+      "purpose": "L ring phalanx 2"
+    },
+    {
+      "name": "AX1_L_RING_03",
+      "parent": "AX1_L_RING_02",
+      "deform": true,
+      "purpose": "L ring phalanx 3"
+    },
+    {
+      "name": "AX1_L_LITTLE_01",
+      "parent": "AX1_L_HAND",
+      "deform": true,
+      "purpose": "L little phalanx 1"
+    },
+    {
+      "name": "AX1_L_LITTLE_02",
+      "parent": "AX1_L_LITTLE_01",
+      "deform": true,
+      "purpose": "L little phalanx 2"
+    },
+    {
+      "name": "AX1_L_LITTLE_03",
+      "parent": "AX1_L_LITTLE_02",
+      "deform": true,
+      "purpose": "L little phalanx 3"
+    },
+    {
+      "name": "AX1_L_THUMB_01",
+      "parent": "AX1_L_HAND",
+      "deform": true,
+      "purpose": "L opposing thumb proximal phalanx"
+    },
+    {
+      "name": "AX1_L_THUMB_02",
+      "parent": "AX1_L_THUMB_01",
+      "deform": true,
+      "purpose": "L opposing thumb distal phalanx"
+    },
+    {
+      "name": "AX1_R_SHOULDER",
+      "parent": "AX1_UPPER_CHEST",
+      "deform": true,
+      "purpose": "R shoulder pivot"
+    },
+    {
+      "name": "AX1_R_UPPER_ARM",
+      "parent": "AX1_R_SHOULDER",
+      "deform": true,
+      "purpose": "R upper arm"
+    },
+    {
+      "name": "AX1_R_FOREARM",
+      "parent": "AX1_R_UPPER_ARM",
+      "deform": true,
+      "purpose": "R forearm and elbow"
+    },
+    {
+      "name": "AX1_R_HAND",
+      "parent": "AX1_R_FOREARM",
+      "deform": true,
+      "purpose": "R wrist and palm"
+    },
+    {
+      "name": "AX1_R_INDEX_01",
+      "parent": "AX1_R_HAND",
+      "deform": true,
+      "purpose": "R index phalanx 1"
+    },
+    {
+      "name": "AX1_R_INDEX_02",
+      "parent": "AX1_R_INDEX_01",
+      "deform": true,
+      "purpose": "R index phalanx 2"
+    },
+    {
+      "name": "AX1_R_INDEX_03",
+      "parent": "AX1_R_INDEX_02",
+      "deform": true,
+      "purpose": "R index phalanx 3"
+    },
+    {
+      "name": "AX1_R_MIDDLE_01",
+      "parent": "AX1_R_HAND",
+      "deform": true,
+      "purpose": "R middle phalanx 1"
+    },
+    {
+      "name": "AX1_R_MIDDLE_02",
+      "parent": "AX1_R_MIDDLE_01",
+      "deform": true,
+      "purpose": "R middle phalanx 2"
+    },
+    {
+      "name": "AX1_R_MIDDLE_03",
+      "parent": "AX1_R_MIDDLE_02",
+      "deform": true,
+      "purpose": "R middle phalanx 3"
+    },
+    {
+      "name": "AX1_R_RING_01",
+      "parent": "AX1_R_HAND",
+      "deform": true,
+      "purpose": "R ring phalanx 1"
+    },
+    {
+      "name": "AX1_R_RING_02",
+      "parent": "AX1_R_RING_01",
+      "deform": true,
+      "purpose": "R ring phalanx 2"
+    },
+    {
+      "name": "AX1_R_RING_03",
+      "parent": "AX1_R_RING_02",
+      "deform": true,
+      "purpose": "R ring phalanx 3"
+    },
+    {
+      "name": "AX1_R_LITTLE_01",
+      "parent": "AX1_R_HAND",
+      "deform": true,
+      "purpose": "R little phalanx 1"
+    },
+    {
+      "name": "AX1_R_LITTLE_02",
+      "parent": "AX1_R_LITTLE_01",
+      "deform": true,
+      "purpose": "R little phalanx 2"
+    },
+    {
+      "name": "AX1_R_LITTLE_03",
+      "parent": "AX1_R_LITTLE_02",
+      "deform": true,
+      "purpose": "R little phalanx 3"
+    },
+    {
+      "name": "AX1_R_THUMB_01",
+      "parent": "AX1_R_HAND",
+      "deform": true,
+      "purpose": "R opposing thumb proximal phalanx"
+    },
+    {
+      "name": "AX1_R_THUMB_02",
+      "parent": "AX1_R_THUMB_01",
+      "deform": true,
+      "purpose": "R opposing thumb distal phalanx"
+    },
+    {
+      "name": "CTRL_AX1_CHEST",
+      "parent": "AX1_ROOT",
+      "deform": false,
+      "purpose": "Chest animator control"
+    },
+    {
+      "name": "CTRL_AX1_HEAD",
+      "parent": "AX1_UPPER_CHEST",
+      "deform": false,
+      "purpose": "Head animator control"
+    },
+    {
+      "name": "CTRL_AX1_L_HAND_IK",
+      "parent": "AX1_ROOT",
+      "deform": false,
+      "purpose": "L optional hand IK target"
+    },
+    {
+      "name": "CTRL_AX1_R_HAND_IK",
+      "parent": "AX1_ROOT",
+      "deform": false,
+      "purpose": "R optional hand IK target"
+    }
+  ],
+  "roles": {
+    "head": "AX1_HEAD",
+    "chest": "AX1_CHEST",
+    "leftHand": "AX1_L_HAND",
+    "rightHand": "AX1_R_HAND"
+  },
+  "meshBoneAssignments": {
+    "AX1_TORSO": "AX1_CHEST",
+    "AX1_CHEST_MECHANISM": "AX1_CHEST",
+    "AX1_SPINE_NECK": "AX1_NECK",
+    "AX1_HEAD_SHELL": "AX1_HEAD",
+    "AX1_VISOR": "AX1_HEAD",
+    "AX1_L_SHOULDER_JOINT": "AX1_L_SHOULDER",
+    "AX1_L_UPPER_ARM": "AX1_L_UPPER_ARM",
+    "AX1_L_ELBOW_JOINT": "AX1_L_FOREARM",
+    "AX1_L_FOREARM": "AX1_L_FOREARM",
+    "AX1_L_PALM": "AX1_L_HAND",
+    "AX1_L_WRIST_JOINT": "AX1_L_HAND",
+    "AX1_L_INDEX_JOINT_0": "AX1_L_INDEX_01",
+    "AX1_L_INDEX_01": "AX1_L_INDEX_01",
+    "AX1_L_INDEX_JOINT_1": "AX1_L_INDEX_02",
+    "AX1_L_INDEX_02": "AX1_L_INDEX_02",
+    "AX1_L_INDEX_JOINT_2": "AX1_L_INDEX_03",
+    "AX1_L_INDEX_03": "AX1_L_INDEX_03",
+    "AX1_L_INDEX_TIP": "AX1_L_INDEX_03",
+    "AX1_L_MIDDLE_JOINT_0": "AX1_L_MIDDLE_01",
+    "AX1_L_MIDDLE_01": "AX1_L_MIDDLE_01",
+    "AX1_L_MIDDLE_JOINT_1": "AX1_L_MIDDLE_02",
+    "AX1_L_MIDDLE_02": "AX1_L_MIDDLE_02",
+    "AX1_L_MIDDLE_JOINT_2": "AX1_L_MIDDLE_03",
+    "AX1_L_MIDDLE_03": "AX1_L_MIDDLE_03",
+    "AX1_L_MIDDLE_TIP": "AX1_L_MIDDLE_03",
+    "AX1_L_RING_JOINT_0": "AX1_L_RING_01",
+    "AX1_L_RING_01": "AX1_L_RING_01",
+    "AX1_L_RING_JOINT_1": "AX1_L_RING_02",
+    "AX1_L_RING_02": "AX1_L_RING_02",
+    "AX1_L_RING_JOINT_2": "AX1_L_RING_03",
+    "AX1_L_RING_03": "AX1_L_RING_03",
+    "AX1_L_RING_TIP": "AX1_L_RING_03",
+    "AX1_L_LITTLE_JOINT_0": "AX1_L_LITTLE_01",
+    "AX1_L_LITTLE_01": "AX1_L_LITTLE_01",
+    "AX1_L_LITTLE_JOINT_1": "AX1_L_LITTLE_02",
+    "AX1_L_LITTLE_02": "AX1_L_LITTLE_02",
+    "AX1_L_LITTLE_JOINT_2": "AX1_L_LITTLE_03",
+    "AX1_L_LITTLE_03": "AX1_L_LITTLE_03",
+    "AX1_L_LITTLE_TIP": "AX1_L_LITTLE_03",
+    "AX1_L_THUMB_JOINT_0": "AX1_L_THUMB_01",
+    "AX1_L_THUMB_01": "AX1_L_THUMB_01",
+    "AX1_L_THUMB_JOINT_1": "AX1_L_THUMB_02",
+    "AX1_L_THUMB_02": "AX1_L_THUMB_02",
+    "AX1_L_THUMB_TIP": "AX1_L_THUMB_02",
+    "AX1_R_SHOULDER_JOINT": "AX1_R_SHOULDER",
+    "AX1_R_UPPER_ARM": "AX1_R_UPPER_ARM",
+    "AX1_R_ELBOW_JOINT": "AX1_R_FOREARM",
+    "AX1_R_FOREARM": "AX1_R_FOREARM",
+    "AX1_R_PALM": "AX1_R_HAND",
+    "AX1_R_WRIST_JOINT": "AX1_R_HAND",
+    "AX1_R_INDEX_JOINT_0": "AX1_R_INDEX_01",
+    "AX1_R_INDEX_01": "AX1_R_INDEX_01",
+    "AX1_R_INDEX_JOINT_1": "AX1_R_INDEX_02",
+    "AX1_R_INDEX_02": "AX1_R_INDEX_02",
+    "AX1_R_INDEX_JOINT_2": "AX1_R_INDEX_03",
+    "AX1_R_INDEX_03": "AX1_R_INDEX_03",
+    "AX1_R_INDEX_TIP": "AX1_R_INDEX_03",
+    "AX1_R_MIDDLE_JOINT_0": "AX1_R_MIDDLE_01",
+    "AX1_R_MIDDLE_01": "AX1_R_MIDDLE_01",
+    "AX1_R_MIDDLE_JOINT_1": "AX1_R_MIDDLE_02",
+    "AX1_R_MIDDLE_02": "AX1_R_MIDDLE_02",
+    "AX1_R_MIDDLE_JOINT_2": "AX1_R_MIDDLE_03",
+    "AX1_R_MIDDLE_03": "AX1_R_MIDDLE_03",
+    "AX1_R_MIDDLE_TIP": "AX1_R_MIDDLE_03",
+    "AX1_R_RING_JOINT_0": "AX1_R_RING_01",
+    "AX1_R_RING_01": "AX1_R_RING_01",
+    "AX1_R_RING_JOINT_1": "AX1_R_RING_02",
+    "AX1_R_RING_02": "AX1_R_RING_02",
+    "AX1_R_RING_JOINT_2": "AX1_R_RING_03",
+    "AX1_R_RING_03": "AX1_R_RING_03",
+    "AX1_R_RING_TIP": "AX1_R_RING_03",
+    "AX1_R_LITTLE_JOINT_0": "AX1_R_LITTLE_01",
+    "AX1_R_LITTLE_01": "AX1_R_LITTLE_01",
+    "AX1_R_LITTLE_JOINT_1": "AX1_R_LITTLE_02",
+    "AX1_R_LITTLE_02": "AX1_R_LITTLE_02",
+    "AX1_R_LITTLE_JOINT_2": "AX1_R_LITTLE_03",
+    "AX1_R_LITTLE_03": "AX1_R_LITTLE_03",
+    "AX1_R_LITTLE_TIP": "AX1_R_LITTLE_03",
+    "AX1_R_THUMB_JOINT_0": "AX1_R_THUMB_01",
+    "AX1_R_THUMB_01": "AX1_R_THUMB_01",
+    "AX1_R_THUMB_JOINT_1": "AX1_R_THUMB_02",
+    "AX1_R_THUMB_02": "AX1_R_THUMB_02",
+    "AX1_R_THUMB_TIP": "AX1_R_THUMB_02"
+  },
+  "validation": {
+    "bone_count": 46,
+    "required_bones_present": true,
+    "rigid_mesh_assignments": 83,
+    "validation_frames": {
+      "open_palm": 1,
+      "closed_fist": 20,
+      "thumb_opposition_index_contact_test": 40
+    }
+  }
+}

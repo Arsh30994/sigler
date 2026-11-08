@@ -13,7 +13,7 @@ Validation commands: `npm run lint`, `npm test`, `npm run build`, and `npm run t
 
 ## Current asset status
 
-The viewer renders a clearly marked **procedural development placeholder**, not the final AX-1 asset. A production integration needs a rigged AX-1 GLB with named head, torso, arms, wrists, and individual finger bones; authored clips; and licensing/provenance information.
+The browser viewer currently renders a clearly marked **procedural development placeholder**. The reproducible unrigged AX-1 blockout is available at `assets/ax1/source/AX1.blend` and `assets/ax1/source/AX1_base.glb`, with six inspection renders in `assets/ax1/renders/`. Browser integration is deferred until the model receives base-model approval and a rig map exists; it must not replace the placeholder with whole-body mouse rotation.
 
 `src/registry/approvedSigns.ts` deliberately contains no signs. A production record must include the typed evidence fields in `ApprovedSign`, including a human reviewer, review date, source, and version. The app does not generate or assert ISL signs.
 

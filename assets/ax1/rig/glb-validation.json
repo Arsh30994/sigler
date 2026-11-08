@@ -1,0 +1,19 @@
+{
+  "cleanImport": true,
+  "armature": "AX1_RIG",
+  "meshCount": 83,
+  "requiredMeshesPresent": true,
+  "boneCount": 46,
+  "requiredBonesPresent": true,
+  "fingerBoneCount": 28,
+  "materials": [
+    "M_AX1_Armour",
+    "M_AX1_Joint",
+    "M_AX1_Visor"
+  ],
+  "externalTextures": [],
+  "animationClips": [
+    "AX1_RigValidation_AX1_RIG"
+  ],
+  "fileBytes": 1355480
+}

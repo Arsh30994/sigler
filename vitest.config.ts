@@ -1,3 +1,8 @@
 import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
-export default defineConfig({ plugins: [react()], test: { environment: 'jsdom', setupFiles: ['./src/test/setup.ts'] } })
+export default defineConfig({
+  plugins: [react()],
+  // GLTFLoader/Three modules are stable in isolated Node processes on Windows;
+  // worker threads can otherwise leave the test runner waiting at shutdown.
+  test: { environment: 'jsdom', setupFiles: ['./src/test/setup.ts'], include: ['src/**/*.test.{ts,tsx}'], pool: 'forks' },
+})
