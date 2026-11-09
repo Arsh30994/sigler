@@ -5,7 +5,7 @@ import { applyIdleHeadTracking } from '../../avatar/controllers/headTracking'
 import { type LoadedAx1, loadAx1 } from '../../avatar/rig/runtime'
 
 export type Ax1LoadState = { kind: 'loading' } | { kind: 'ready'; boneCount: number; animationCount: number } | { kind: 'error'; message: string }
-interface Props { trackingEnabled: boolean; target: { x: number; y: number }; onStateChange(state: Ax1LoadState): void }
+interface Props { trackingEnabled: boolean; target: { x: number; y: number }; rigValidationActive: boolean; onStateChange(state: Ax1LoadState): void }
 
 function HeadIdleOffset({ asset, trackingEnabled, target }: { asset: LoadedAx1; trackingEnabled: boolean; target: Props['target'] }) {
   const rest = useRef<THREE.Quaternion | null>(null)
@@ -19,7 +19,7 @@ function HeadIdleOffset({ asset, trackingEnabled, target }: { asset: LoadedAx1; 
   return null
 }
 
-export function Ax1Model({ trackingEnabled, target, onStateChange }: Props) {
+export function Ax1Model({ trackingEnabled, target, rigValidationActive, onStateChange }: Props) {
   const [asset, setAsset] = useState<LoadedAx1 | null>(null)
   useEffect(() => {
     let disposed = false
@@ -31,5 +31,19 @@ export function Ax1Model({ trackingEnabled, target, onStateChange }: Props) {
     }).catch((error: unknown) => onStateChange({ kind: 'error', message: error instanceof Error ? error.message : 'Unknown AX-1 loading error' }))
     return () => { disposed = true; setAsset((current) => { current?.dispose(); return null }) }
   }, [onStateChange])
+  useEffect(() => {
+    if (!asset) return
+    if (!rigValidationActive) {
+      asset.playback.stop()
+      return
+    }
+    try {
+      asset.playback.prepareRigValidation(asset.animations)
+      asset.playback.play()
+    } catch (error) {
+      onStateChange({ kind: 'error', message: error instanceof Error ? error.message : 'AX-1 rig validation playback could not start' })
+    }
+    return () => asset.playback.stop()
+  }, [asset, onStateChange, rigValidationActive])
   return asset ? <><primitive object={asset.scene} /><HeadIdleOffset asset={asset} trackingEnabled={trackingEnabled} target={target} /></> : null
 }
