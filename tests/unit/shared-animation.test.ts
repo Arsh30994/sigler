@@ -1,0 +1,5 @@
+import { describe,expect,it } from 'vitest'
+import { SharedAnimationEngine } from '../../frontend/src/avatar/shared/engine'
+import { validateAnimation, type SharedSignAnimation } from '../../frontend/src/avatar/shared/schema'
+const animation:SharedSignAnimation={schemaVersion:'1.0',animationId:'SYNTHETIC_HAND_TEST',signId:'SYNTHETIC',durationMs:1000,dominantHand:'both',keyframes:[{atMs:0},{atMs:500,left:{palmOrientation:'front',wrist:{},fingers:{},position:[0,0,0]},right:{palmOrientation:'front',wrist:{},fingers:{},position:[0,0,0]}}],provenance:'test only',validationStatus:'SYNTHETIC_TEST',supportedRuntimes:['ax1-3d']}
+describe('shared animation',()=>{it('validates chronological two-hand assets',()=>expect(validateAnimation(animation)).toEqual([]));it('plays deterministically',()=>{const engine=new SharedAnimationEngine();engine.load(animation);engine.play();engine.tick(500);expect(engine.snapshot().keyframe?.atMs).toBe(500);engine.pause();engine.tick(100);expect(engine.snapshot().elapsedMs).toBe(500)})})

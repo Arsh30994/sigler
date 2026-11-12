@@ -1,0 +1,3 @@
+# Sign-to-Text research module
+
+This is a webcam/landmark recording foundation, not an ISL translator. Install with `python -m pip install -r requirements.txt`, run tests with `python -m pytest research/sign_to_text/tests`, and launch manually with `python -m research.sign_to_text.app`. Camera permission is requested by OpenCV only when launched. Samples store normalized 30×126 feature arrays plus separate left/right presence masks and non-identifying metadata. Collect only `VERIFIED` registry records with participant consent. Use `quality_report` and `training_readiness` before any TCN work; the split utility holds entire signers out of evaluation.

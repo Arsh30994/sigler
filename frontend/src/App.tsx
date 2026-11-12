@@ -5,8 +5,16 @@ import { WorkspaceControls } from './features/avatar-workspace/WorkspaceControls
 import { WorkspaceDiagnostics } from './features/avatar-workspace/WorkspaceDiagnostics'
 import { approvedSigns } from './avatar/registry/approvedSigns'
 import type { Expression } from './avatar/types'
+import { AvatarLab } from './features/avatar-lab/AvatarLab'
+import { CompanionApp } from './features/echobridge/CompanionApp'
 
 export default function App() {
+  if (window.location.pathname === '/avatar-lab') return <AvatarLab />
+  if (window.location.pathname !== '/workspace') return <CompanionApp />
+  return <WorkspaceApp />
+}
+
+function WorkspaceApp() {
   const [expression, setExpression] = useState<Expression>('neutral')
   const [trackingEnabled, setTrackingEnabled] = useState(true)
   const [showLandmarks, setShowLandmarks] = useState(true)
