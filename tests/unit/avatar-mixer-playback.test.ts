@@ -22,7 +22,7 @@ describe('MixerPlayback', () => {
   it('uses the embedded rig validation clip as a system-owned diagnostic, never as a sign', () => {
     const ownership = new ChannelOwnership()
     const playback = new MixerPlayback(new AnimationMixer(new Object3D()), ownership)
-    playback.prepareRigValidation([new AnimationClip('AX1_RigValidation_AX1_RIG')])
+    playback.prepareRigValidation([new AnimationClip('AX1_RigValidation')], 'AX1_RigValidation')
     playback.play()
     expect(ownership.canWrite('idle-mouse', 'head')).toBe(false)
     expect(ownership.canWrite('idle-mouse', 'hands')).toBe(false)

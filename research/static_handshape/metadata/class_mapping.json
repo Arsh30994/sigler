@@ -1,0 +1,186 @@
+{
+  "mapping_status": "unverified",
+  "note": "Raw folder IDs are preserved exactly and have no asserted meaning.",
+  "classes": {
+    "0": {
+      "raw_class_id": "0",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "1": {
+      "raw_class_id": "1",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "2": {
+      "raw_class_id": "2",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "3": {
+      "raw_class_id": "3",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "4": {
+      "raw_class_id": "4",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "5": {
+      "raw_class_id": "5",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "6": {
+      "raw_class_id": "6",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "7": {
+      "raw_class_id": "7",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "8": {
+      "raw_class_id": "8",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "9": {
+      "raw_class_id": "9",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "A": {
+      "raw_class_id": "A",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "B": {
+      "raw_class_id": "B",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "C": {
+      "raw_class_id": "C",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "D": {
+      "raw_class_id": "D",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "E": {
+      "raw_class_id": "E",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "F": {
+      "raw_class_id": "F",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "G": {
+      "raw_class_id": "G",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "H": {
+      "raw_class_id": "H",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "I": {
+      "raw_class_id": "I",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "J": {
+      "raw_class_id": "J",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "K": {
+      "raw_class_id": "K",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "L": {
+      "raw_class_id": "L",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "M": {
+      "raw_class_id": "M",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "N": {
+      "raw_class_id": "N",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "O": {
+      "raw_class_id": "O",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "P": {
+      "raw_class_id": "P",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "Q": {
+      "raw_class_id": "Q",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "R": {
+      "raw_class_id": "R",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "S": {
+      "raw_class_id": "S",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "T": {
+      "raw_class_id": "T",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "U": {
+      "raw_class_id": "U",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "V": {
+      "raw_class_id": "V",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "W": {
+      "raw_class_id": "W",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "X": {
+      "raw_class_id": "X",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "Y": {
+      "raw_class_id": "Y",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    },
+    "Z": {
+      "raw_class_id": "Z",
+      "meaning": null,
+      "status": "UNVERIFIED"
+    }
+  }
+}

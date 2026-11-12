@@ -23,9 +23,9 @@ export class MixerPlayback {
    * A development-only diagnostic using the animation embedded in AX-1.glb.
    * It is deliberately separate from sign playback and carries no linguistic meaning.
    */
-  prepareRigValidation(clips: readonly AnimationClip[]) {
-    const clip = clips.find((item) => item.name === 'AX1_RigValidation_AX1_RIG')
-    if (!clip) throw new Error('AX-1 rig validation clip is missing from the exported model')
+  prepareRigValidation(clips: readonly AnimationClip[], animationClip: string) {
+    const clip = clips.find((item) => item.name === animationClip)
+    if (!clip) throw new Error(`AX-1 rig validation clip "${animationClip}" is missing from the exported model`)
     this.stop()
     this.owner = 'system'
     this.channels = ['head', 'leftArm', 'rightArm', 'hands', 'torso']

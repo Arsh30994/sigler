@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SIGLER — System Architecture
 
 **Status:** Architecture baseline  
@@ -173,3 +174,6 @@ Record consequential decisions here using this format:
 - [Product and interaction design](DESIGN.md)
 - [Project memory and engineering decisions](MEMORY.md)
 - [Repository README](README.md)
+## 12. Current implementation note
+
+Communication UI, media permission lifecycle, recognition placeholder, and AX-1 rendering are separate. `MediaController` owns temporary browser media streams and releases their tracks on stop, mode change, and unmount.

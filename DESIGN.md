@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SIGLER — Product and Interaction Design
 
 **Status:** Design principles and target interaction specification  
@@ -166,3 +167,6 @@ Suggested product copy:
 - [System architecture](ARCHITECTURE.md)
 - [Product requirements](PRD.md)
 - [Project memory](MEMORY.md)
+## Current implementation note
+
+Communication Mode uses large text-labelled mode controls, 68–76px primary targets, live status announcements, high contrast, and a reduced-motion-safe static interface. Camera and microphone state is always stated in text.

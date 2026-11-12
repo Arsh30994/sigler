@@ -7,9 +7,13 @@ import { approvedSigns } from './avatar/registry/approvedSigns'
 import type { Expression } from './avatar/types'
 import { AvatarLab } from './features/avatar-lab/AvatarLab'
 import { CompanionApp } from './features/echobridge/CompanionApp'
+import { AutomaticSigningApp } from './features/automatic-signing/AutomaticSigningApp'
+import { CommunicationMode } from './features/communication/CommunicationMode'
 
 export default function App() {
   if (window.location.pathname === '/avatar-lab') return <AvatarLab />
+  if (window.location.pathname === '/signing-demo') return <AutomaticSigningApp />
+  if (window.location.pathname === '/communication') return <CommunicationMode />
   if (window.location.pathname !== '/workspace') return <CompanionApp />
   return <WorkspaceApp />
 }

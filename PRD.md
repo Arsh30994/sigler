@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SIGLER — Product Requirements Document (PRD)
 
 **Document status:** Draft product baseline  
@@ -248,3 +249,6 @@ Set numeric targets only after baseline measurement and user research. Track:
 - [System architecture](ARCHITECTURE.md)
 - [Product and interaction design](DESIGN.md)
 - [Project memory](MEMORY.md)
+## 13. Implementation snapshot — 2026-11-13
+
+Communication Mode is an accessible, local interface at `/communication`. Sign recognition and approved sign playback are intentionally unavailable until validated assets/models exist.

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SIGLER — Project Memory
 
 **Purpose:** A concise, maintained record of durable project context, accepted constraints, decisions, and verified status. This is project memory for contributors—not a record of private user information.
@@ -147,3 +148,6 @@ When changing this file:
 - [System architecture](ARCHITECTURE.md)
 - [Product and interaction design](DESIGN.md)
 - [Product requirements](PRD.md)
+## 11. Implementation snapshot — 2026-11-13
+
+AX-1 is the only rigged avatar. The approved sign registry is empty. Camera/microphone access is opt-in and releases tracks; recognition and speech-to-text are placeholders.

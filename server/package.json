@@ -1,0 +1,7 @@
+{
+  "name": "sigler-api",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "node --watch src/index.mjs", "start": "node src/index.mjs" },
+  "dependencies": { "dotenv": "^16.6.1", "mongodb": "^6.20.0" }
+}

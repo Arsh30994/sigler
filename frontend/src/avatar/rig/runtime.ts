@@ -1,10 +1,10 @@
-import { AnimationMixer, Bone, Group, Material, Object3D } from 'three'
+import { AnimationMixer, type AnimationClip, Bone, Group, Material, Object3D } from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { ChannelOwnership } from '../animation/channelOwnership'
 import { MixerPlayback } from '../animation/mixerPlayback'
 
 export interface RigBoneDefinition { name: string; parent: string | null; deform: boolean; purpose: string }
-export interface Ax1BoneMap { armature: string; bones: RigBoneDefinition[]; roles: { head: string; chest: string; leftHand: string; rightHand: string } }
+export interface Ax1BoneMap { armature: string; bones: RigBoneDefinition[]; roles: { head: string; chest: string; leftHand: string; rightHand: string }; validation: { animationClip: string } }
 export interface RigCompatibility { bones: ReadonlyMap<string, Bone>; requiredBoneCount: number }
 export interface LoadedAx1 { scene: Group; mixer: AnimationMixer; playback: MixerPlayback; ownership: ChannelOwnership; animations: ReturnType<GLTFLoader['loadAsync']> extends Promise<infer G> ? G extends { animations: infer A } ? A : never : never; boneMap: Ax1BoneMap; rig: RigCompatibility; dispose(): void }
 
@@ -23,6 +23,13 @@ export function validateRig(scene: Object3D, boneMap: Ax1BoneMap): RigCompatibil
   return { bones, requiredBoneCount: boneMap.bones.filter((bone) => bone.deform).length }
 }
 
+/** Fail loading early if the manifest and the actual GLB clip table disagree. */
+export function validateRigValidationClip(animations: readonly AnimationClip[], boneMap: Ax1BoneMap) {
+  if (!animations.some((clip) => clip.name === boneMap.validation.animationClip)) {
+    throw new RigCompatibilityError(`AX-1 rig compatibility error: validation clip ${boneMap.validation.animationClip} is missing`)
+  }
+}
+
 function disposeScene(scene: Object3D) {
   scene.traverse((object) => {
     const mesh = object as Object3D & { geometry?: { dispose(): void }; material?: Material | Material[] }
@@ -37,6 +44,7 @@ export async function loadAx1(): Promise<LoadedAx1> {
   if (!response.ok) throw new Error(`AX-1 bone map could not load (${response.status})`)
   const boneMap = await response.json() as Ax1BoneMap
   const rig = validateRig(gltf.scene, boneMap)
+  validateRigValidationClip(gltf.animations, boneMap)
   const mixer = new AnimationMixer(gltf.scene)
   const ownership = new ChannelOwnership()
   const playback = new MixerPlayback(mixer, ownership)

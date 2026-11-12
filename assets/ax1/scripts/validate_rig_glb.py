@@ -1,6 +1,7 @@
 """Clean-scene validation for AX-1's exported rigged GLB."""
 import json
 import os
+import struct
 import bpy
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
@@ -31,7 +32,13 @@ if missing_meshes:
 if any(not mesh.vertex_groups for mesh in meshes):
     raise RuntimeError("One or more imported AX-1 meshes has no skin weights")
 materials = {material.name for mesh in meshes for material in mesh.data.materials if material}
-actions = list(bpy.data.actions)
+with open(GLB, "rb") as file:
+    header = file.read(20)
+    _, _, _, json_length, json_type = struct.unpack("<4sIIII", header)
+    if json_type != 0x4E4F534A:
+        raise RuntimeError("AX-1 GLB has no JSON chunk")
+    glb_document = json.loads(file.read(json_length).decode("utf-8"))
+animation_clips = [animation.get("name", "") for animation in glb_document.get("animations", [])]
 report = {
     "cleanImport": True,
     "armature": armature.name,
@@ -42,7 +49,7 @@ report = {
     "fingerBoneCount": len([name for name in bone_names if any(digit in name for digit in ("THUMB", "INDEX", "MIDDLE", "RING", "LITTLE"))]),
     "materials": sorted(materials),
     "externalTextures": [],
-    "animationClips": [action.name for action in actions],
+    "animationClips": animation_clips,
     "fileBytes": os.path.getsize(GLB),
 }
 with open(REPORT, "w", encoding="utf-8") as file:

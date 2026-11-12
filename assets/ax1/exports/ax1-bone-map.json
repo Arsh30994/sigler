@@ -370,6 +370,7 @@
     "AX1_R_THUMB_TIP": "AX1_R_THUMB_02"
   },
   "validation": {
+    "animationClip": "AX1_RigValidation",
     "bone_count": 46,
     "required_bones_present": true,
     "rigid_mesh_assignments": 83,

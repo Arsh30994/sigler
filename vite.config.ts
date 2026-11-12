@@ -9,4 +9,5 @@ export default defineConfig({
   publicDir: resolve(__dirname, 'assets/ax1/exports'),
   // Keep the build independent of unrelated machine-level PostCSS settings.
   css: { postcss: { plugins: [] } },
+  server: { proxy: { '/api': 'http://127.0.0.1:8787' } },
 })
