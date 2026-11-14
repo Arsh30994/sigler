@@ -1,4 +1,7 @@
 node_modules/
+backend/.venv/
+backend/models/
+backend/.pytest_cache/
 dist/
 coverage/
 playwright-report/

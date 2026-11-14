@@ -21,7 +21,7 @@ export default function App() {
 function WorkspaceApp() {
   const [expression, setExpression] = useState<Expression>('neutral')
   const [trackingEnabled, setTrackingEnabled] = useState(true)
-  const [showLandmarks, setShowLandmarks] = useState(true)
+  const [showLandmarks, setShowLandmarks] = useState(false)
   const [rigValidationActive, setRigValidationActive] = useState(false)
   const [resetToken, setResetToken] = useState(0)
   const [frameRate, setFrameRate] = useState<number | null>(null)

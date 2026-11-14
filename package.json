@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "vite",
     "dev:api": "npm --prefix server run dev",
+    "dev:recognition": "python -m uvicorn backend.app.main:app --reload --port 8000",
+    "recognition:download-model": "python -m backend.scripts.download_vsrs_model",
+    "test:recognition": "python -m pytest backend/tests -q",
     "api": "npm --prefix server start",
     "db:up": "docker compose up -d mongo",
     "db:down": "docker compose down",

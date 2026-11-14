@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # SIGLER — Product and Interaction Design
 
 **Status:** Design principles and target interaction specification  
@@ -170,3 +169,7 @@ Suggested product copy:
 ## Current implementation note
 
 Communication Mode uses large text-labelled mode controls, 68–76px primary targets, live status announcements, high contrast, and a reduced-motion-safe static interface. Camera and microphone state is always stated in text.
+
+## VSRS readiness state — 2026-11-13
+
+Sign → Speech now shows whether the local VSRS V1 service is checking, ready or unavailable. A ready model is not presented as active recognition: camera activation still does not transmit video or landmarks, and the UI states this clearly until a verified browser landmark provider is added.

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # SIGLER — Product Requirements Document (PRD)
 
 **Document status:** Draft product baseline  
@@ -252,3 +251,7 @@ Set numeric targets only after baseline measurement and user research. Track:
 ## 13. Implementation snapshot — 2026-11-13
 
 Communication Mode is an accessible, local interface at `/communication`. Sign recognition and approved sign playback are intentionally unavailable until validated assets/models exist.
+
+## 14. VSRS V1 experiment — 2026-11-13
+
+The local recognition service can classify the bounded official VSRS V1 model vocabulary once it receives verified compatible hand landmarks. This does not alter the release criteria: Sigler has no approved published signs or animation assets, and candidates cannot automatically trigger speech or signing playback.

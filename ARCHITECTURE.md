@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # SIGLER — System Architecture
 
 **Status:** Architecture baseline  
@@ -177,3 +176,7 @@ Record consequential decisions here using this format:
 ## 12. Current implementation note
 
 Communication UI, media permission lifecycle, recognition placeholder, and AX-1 rendering are separate. `MediaController` owns temporary browser media streams and releases their tracks on stop, mode change, and unmount.
+
+## 13. VSRS V1 integration — 2026-11-13
+
+The repository now includes a separate FastAPI service for the hash-verified VSRS V1 MLP. It consumes typed two-hand landmarks, not raw video, and preserves the documented 126-feature and five-frame aggregation boundary. Its model labels are recognition candidates only; they have no automatic linguistic approval, speech permission or AX-1 animation permission. The current React client checks readiness but does not transmit biometric input until a browser landmark provider can demonstrate preprocessing parity.

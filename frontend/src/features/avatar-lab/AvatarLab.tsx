@@ -1,4 +1,4 @@
-import { Environment, Grid, Html, OrbitControls } from '@react-three/drei'
+import { Grid, Html, OrbitControls } from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
@@ -21,7 +21,7 @@ function HandModel({ pose, selected, onReady, onError }: { pose: Record<string, 
 }
 
 function LabCanvas({ pose, selected, onReady, onError }: Parameters<typeof HandModel>[0]) {
-  return <section className="lab-canvas" aria-label="AX-1 interactive hand viewport"><Canvas camera={{ position: [0, 4.7, 5.8], fov: 35 }} dpr={[1, 2]}><color attach="background" args={['#07101d']} /><ambientLight intensity={1.4} /><directionalLight position={[3, 5, 4]} intensity={2.7} /><pointLight position={[-3, 2, 3]} color="#559dff" intensity={20} /><HandModel pose={pose} selected={selected} onReady={onReady} onError={onError} /><Grid position={[0, -0.1, 0]} args={[10, 10]} cellSize={0.5} sectionSize={2} sectionColor="#285c9c" fadeDistance={8} infiniteGrid /><Environment preset="city" /><OrbitControls target={[0, 1.4, 0]} minDistance={3} maxDistance={11} /><Html position={[0, -0.8, 0]} center><span className="asset-label">ACTUAL AX-1 GLB · BONE-DRIVEN HAND LAB</span></Html></Canvas></section>
+  return <section className="lab-canvas" aria-label="AX-1 interactive hand viewport"><Canvas camera={{ position: [0, 4.7, 5.8], fov: 35 }} dpr={1}><color attach="background" args={['#07101d']} /><ambientLight intensity={1.4} /><directionalLight position={[3, 5, 4]} intensity={2.7} /><pointLight position={[-3, 2, 3]} color="#559dff" intensity={20} /><hemisphereLight args={['#dbeafe', '#1c1917', 1.1]} /><HandModel pose={pose} selected={selected} onReady={onReady} onError={onError} /><Grid position={[0, -0.1, 0]} args={[10, 10]} cellSize={0.5} sectionSize={2} sectionColor="#285c9c" fadeDistance={8} infiniteGrid /><OrbitControls target={[0, 1.4, 0]} minDistance={3} maxDistance={11} /><Html position={[0, -0.8, 0]} center><span className="asset-label">ACTUAL AX-1 GLB · BONE-DRIVEN HAND LAB</span></Html></Canvas></section>
 }
 
 export function AvatarLab() {

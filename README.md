@@ -29,6 +29,9 @@ Open the local URL printed by Vite. The viewer serves the exact reviewed export 
 | Command | Purpose |
 | --- | --- |
 | `npm run dev` | Start the Vite development workspace. |
+| `npm run dev:recognition` | Start the local FastAPI VSRS V1 recognition service on port 8000. |
+| `npm run recognition:download-model` | Explicitly download from the VSRS storage bucket and SHA-256 verify the official V1 MLP artifact. |
+| `npm run test:recognition` | Run FastAPI recognition-service tests. |
 | `npm run build` | Type-check and create a production build. |
 | `npm run preview` | Serve the production build locally. |
 | `npm run lint` | Run ESLint. |
